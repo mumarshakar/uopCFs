@@ -6,16 +6,20 @@
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
-  <body>
+  <body class="d-flex justify-content-between align-items-center">
       
    
 
  <div class="container">
-      <h1>Here is the list</h1>
+
     <div class="row">
         <div class="col-6 m-auto">
-           
            <form action="" method="POST">
+           <div class="card">
+             <div class="card-header text-center"><h1>Login Here</h1></div>
+             <div class="card-body">
+               
+
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -26,8 +30,12 @@
                     <input type="password" class="form-control" id="exampleInputPassword1">
                   </div>
                   <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+               
 
+             </div>
+             <div class="card-footer"></div>
+           </div>
+        </form>  
         </div>
     </div>
  </div>
