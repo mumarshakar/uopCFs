@@ -19,8 +19,8 @@
    <div class="container">
     <div class="row">
       <div class="col-12 d-flex justify-content-evenly">
-        <div>Home</div>
-        <div>Add</div>
+        <div><a href="classFellows.php">Home</div>
+        <div><a href="add_cf.php">Add</a></div>
         <div>Update</div>
         <div><a href="logout.php">logout</a></div>
       </div>

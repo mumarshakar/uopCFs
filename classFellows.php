@@ -30,8 +30,6 @@
               <th>Course</th>
               <th>Course Code</th>
               <th>Phone</th>
-              <th>Previous Course</th>
-              <th>Second Country</th>
             </tr>
           </thead>
           <tbody>
@@ -54,8 +52,7 @@
               <td><?php echo $row["term"] ?></td>
               <td><?php echo $row["coursename"] ?></td>
               <td><?php echo $row["coursecode"] ?></td>
-              <td></td>
-              <td></td>
+
               
             </tr>
   <?php  }
