@@ -1,20 +1,11 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  </head>
-  <body>
-      
+<?php include("header.php") ?>   
    <!-- Start List Of Class Fellow -->
 
   <div class="container mt-3">
     <div class="row">
       <div class="card">
         <div class="card-body">
-          <h1>List Of Class Fellows</h1>
+          <h1>Welcome: <?php echo $_SESSION['user_name'] ?></h1>
         </div>
       </div>
     </div>
@@ -26,13 +17,14 @@
             <table class="table table-fluid table-bordered table-hover">
           <thead>
             <tr>
+              <th>Sr#</th>
               <th>First Name</th>
               <th>Last Name</th>
               <th>Role</th>
               <th>Group</th>
               <th>Email</th>
               <th>Country</th>
-              <th>National Day</th>
+            
               <th>Year</th>
               <th>Term</th>
               <th>Course</th>
@@ -43,54 +35,34 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>abc</td>
-              <td>xyz</td>
-              <td>Student</td>
-              <td>GP0001</td>
-              <td>abc@gmail.com</td>
-              <td>Pakistan</td>
-              <td>14 August 1947</td>
-              <td>341</td>
-              <td>341</td>
-              <td>341</td>
-              <td>341</td>
-              <td>341</td>
-              <td>341</td>
-              <td>341</td>
+<?php  
+    $connect = mysqli_connect("localhost",  "root", "", "uopcfs");
+    if($connect == true){
+      $fetch = mysqli_query($connect, "SELECT * FROM students");
+    } 
+    while($row = mysqli_fetch_assoc($fetch)){?>
+        <tr>
+              <td><?php echo $row["stid"] ?></td>
+              <td><?php echo $row["fname"] ?></td>
+              <td><?php echo $row["lname"] ?></td>
+              <td><?php echo $row["role"] ?></td>
+              <td><?php echo $row["groupname"] ?></td>
+              <td><?php echo $row["emailaddress"] ?></td>
+              <td><?php echo $row["country"] ?></td>
+              
+              <td><?php echo $row["year"] ?></td>
+              <td><?php echo $row["term"] ?></td>
+              <td><?php echo $row["coursename"] ?></td>
+              <td><?php echo $row["coursecode"] ?></td>
+              <td></td>
+              <td></td>
+              
             </tr>
-            <tr>
-              <td>abc</td>
-              <td>xyz</td>
-              <td>Student</td>
-              <td>GP0001</td>
-              <td>abc@gmail.com</td>
-              <td>Pakistan</td>
-              <td>14 August 1947</td>
-              <td>341</td>
-              <td>341</td>
-              <td>341</td>
-              <td>341</td>
-              <td>341</td>
-              <td>341</td>
-              <td>341</td>
-            </tr>
-            <tr>
-              <td>abc</td>
-              <td>xyz</td>
-              <td>Student</td>
-              <td>GP0001</td>
-              <td>abc@gmail.com</td>
-              <td>Pakistan</td>
-              <td>14 August 1947</td>
-              <td>341</td>
-              <td>341</td>
-              <td>341</td>
-              <td>341</td>
-              <td>341</td>
-              <td>341</td>
-              <td>341</td>
-            </tr>
+  <?php  }
+
+ ?>
+            
+            
           </tbody>
         </table>
           
