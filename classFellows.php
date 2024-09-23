@@ -1,7 +1,32 @@
-<?php include("header.php") ?>   
+<?php include("header.php");
+    $connect = mysqli_connect("localhost",  "root", "", "uopcfs");
+ ?>   
    <!-- Start List Of Class Fellow -->
 
   <div class="container mt-3">
+    <div class="row">
+      <form action="" method="POST">
+      <div class="col-6">
+        <div class="form-group">
+          <label>Select Country: </label>
+
+           <select name="countryName" class="form-control" required>
+ <?php 
+  $sq = mysqli_query($connect, "SELECT DISTINCT country FROM students");
+    while($row = mysqli_fetch_assoc($sq)){
+      $country = $row["country"];
+      echo '<option value="'.$country.'">'.$country.'</option>';
+    }
+?>
+           </select>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-warning">View</button>
+        </div>
+
+      </div>
+    </form>
+    </div>
     <div class="row">
       <div class="card">
         <div class="card-body">
@@ -34,10 +59,16 @@
           </thead>
           <tbody>
 <?php  
-    $connect = mysqli_connect("localhost",  "root", "", "uopcfs");
+
+       $countryName = $_POST['countryName'];
+
     if($connect == true){
-      $fetch = mysqli_query($connect, "SELECT * FROM students");
-    } 
+        if(empty($countryName)){
+          $fetch = mysqli_query($connect, "SELECT * FROM students");
+        }else{
+         $fetch = mysqli_query($connect, "SELECT * FROM students WHERE country = '$countryName'");
+        }
+    }
     while($row = mysqli_fetch_assoc($fetch)){?>
         <tr>
               <td><?php echo $row["stid"] ?></td>
@@ -46,7 +77,7 @@
               <td><?php echo $row["role"] ?></td>
               <td><?php echo $row["groupname"] ?></td>
               <td><?php echo $row["emailaddress"] ?></td>
-              <td><?php echo $row["country"] ?></td>
+              <td><a href="country_details.php?cn=<?php echo $row['country'] ?>"><?php echo $row["country"] ?></a></td>
               
               <td><?php echo $row["year"] ?></td>
               <td><?php echo $row["term"] ?></td>
