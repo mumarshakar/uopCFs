@@ -54,7 +54,7 @@
               <th>Term</th>
               <th>Course</th>
               <th>Course Code</th>
-              <th>Phone</th>
+
             </tr>
           </thead>
           <tbody>
